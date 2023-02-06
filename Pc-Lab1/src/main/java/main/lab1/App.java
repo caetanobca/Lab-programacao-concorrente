@@ -18,6 +18,16 @@ public class App {
         String path = "../data/actors.txt";
         int size = 1000;
 
+        Actor actor = Utils.requestActors("http://150.165.15.104:8002/actor/nm1179580");
+        System.out.println(actor);
+
+        Movie movie = Utils.requestMovie("http://150.165.15.104:8002/title/tt7825208");
+        System.out.println(movie);
+
+        MainActors mainActors  = Utils.requestMainActors("http://150.165.15.104:8002/main_actors/tt7825208");
+        System.out.println(mainActors);
+
+
         // try {
         //     Utils.csvWriter(actorsRatting, "result.csv");
         // } catch (IOException e) {

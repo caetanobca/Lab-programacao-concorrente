@@ -3,7 +3,7 @@ package main.lab1.DTOs;
 public class Actor {
 
     private String knownForTitles;
-    private String ncosnt;
+    private String nconst;
     private String primaryName;
 
     private float rating;
@@ -12,8 +12,8 @@ public class Actor {
         return knownForTitles;
     }
 
-    public String getNcosnt() {
-        return ncosnt;
+    public String getNconst() {
+        return nconst;
     }
 
     public String getPrimaryName() {
@@ -32,7 +32,7 @@ public class Actor {
     public String toString() {
         return "Actor{" +
                 "knownForTitles='" + knownForTitles + '\'' +
-                ", ncosnt='" + ncosnt + '\'' +
+                ", ncosnt='" + nconst + '\'' +
                 ", primaryName='" + primaryName + '\'' +
                 '}';
     }

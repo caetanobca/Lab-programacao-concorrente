@@ -23,8 +23,11 @@ public class Utils {
             HttpClient httpClient = HttpClient.newHttpClient();
             HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
 
+            String result = response.body().replace("\\", "").replace("\"[", "[").replace("]\"", "]");
+            result = result.substring(1, result.length()-1);
+
             Gson gson = new Gson();
-            MainActors mainActors = gson.fromJson(response.body(), MainActors.class);
+            MainActors mainActors = gson.fromJson(result, MainActors.class);
 
             return mainActors;
         } catch (URISyntaxException e) {
@@ -45,8 +48,12 @@ public class Utils {
             HttpClient httpClient = HttpClient.newHttpClient();
             response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
 
+            String result = response.body().replace("\\", "");
+            result = result.substring(1, result.length()-1);
+
             Gson gson = new Gson();
-            Movie movie = gson.fromJson(response.body(), Movie.class);
+            Movie movie = gson.fromJson(result, Movie.class);
+
             return movie;
         } catch (URISyntaxException e) {
             throw new RuntimeException(e);
@@ -66,8 +73,12 @@ public class Utils {
             HttpClient httpClient = HttpClient.newHttpClient();
             response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
 
+            String result = response.body().replace("\\", "");
+            result = result.substring(1, result.length()-1);
+
             Gson gson = new Gson();
-            Actor actor = gson.fromJson(response.body(), Actor.class);
+            Actor actor = gson.fromJson(result, Actor.class);
+
             return actor;
         } catch (URISyntaxException e) {
             throw new RuntimeException(e);
